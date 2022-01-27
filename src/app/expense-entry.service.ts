@@ -27,6 +27,16 @@ export class ExpenseEntryService {
      return this.httpclient.post<ExpenseEntry>(this.expenseEntryUrl, expenseentry, this.httpOptions)
      .pipe(retry(3), catchError(this.httpErrorHandler));
    }
+   updateExpenseEntry(expenseentry : ExpenseEntry) : Observable<ExpenseEntry> {
+    return this.httpclient.put<ExpenseEntry>(this.expenseEntryUrl, expenseentry, this.httpOptions)
+    .pipe(retry(3), catchError(this.httpErrorHandler));
+  }
+  deleteExpenseEntry(expenseEntry : ExpenseEntry | number) : Observable<ExpenseEntry> {
+    const id = typeof expenseEntry == 'number' ? expenseEntry : expenseEntry.id
+    const url = `${this.expenseEntryUrl}/${id}`;
+    return this.httpclient.delete<ExpenseEntry>(this.expenseEntryUrl, this.httpOptions)
+    .pipe(retry(3), catchError(this.httpErrorHandler));
+  }
 
    private httpErrorHandler(error : HttpErrorResponse){
      if(error.error instanceof ErrorEvent){
