@@ -23,6 +23,11 @@ export class ExpenseEntryService {
      , catchError(this.httpErrorHandler));
    }
 
+   getExpenseEntry(id: number) : Observable<ExpenseEntry>{
+    return this.httpclient.get<ExpenseEntry>(this.expenseEntryUrl + "/" + id, this.httpOptions).pipe(retry(3)
+    , catchError(this.httpErrorHandler));
+   }
+
    addExpenseEntry(expenseentry : ExpenseEntry) : Observable<ExpenseEntry> {
      return this.httpclient.post<ExpenseEntry>(this.expenseEntryUrl, expenseentry, this.httpOptions)
      .pipe(retry(3), catchError(this.httpErrorHandler));

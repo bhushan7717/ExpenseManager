@@ -4,7 +4,7 @@
           <div class="container" style="padding-left: 0px; padding-right: 0px;"> 
              <div class="row"> 
                 <div class="col-sm" style="text-align: left;"> 
-                   {{ title }} 
+                   <h4> {{ title }} </h4>
                 </div> 
                 <div class="col-sm" style="text-align: right;"> 
                    <button type="button" class="btn btn-primary">Edit</button> 
@@ -20,6 +20,7 @@
                       <th>Category</th> 
                       <th>Location</th> 
                       <th>Spent On</th> 
+                      <th>Details</th>
                    </tr> 
                 </thead> 
                 <tbody> 
@@ -29,6 +30,7 @@
                       <td>{{ entry.category }}</td> 
                       <td>{{ entry.location }}</td> 
                       <td>{{ entry.spendOn | date: 'short' }}</td> 
+                      <td><a routerLink="../expenses/details/{{ entry.id }}">View</a></td>
                    </tr> 
                 </tbody> 
              </table> 
