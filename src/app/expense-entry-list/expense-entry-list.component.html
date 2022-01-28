@@ -20,7 +20,9 @@
                       <th>Category</th> 
                       <th>Location</th> 
                       <th>Spent On</th> 
-                      <th>Details</th>
+                      <th>View</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
                    </tr> 
                 </thead> 
                 <tbody> 
@@ -31,6 +33,8 @@
                       <td>{{ entry.location }}</td> 
                       <td>{{ entry.spendOn | date: 'short' }}</td> 
                       <td><a routerLink="../expenses/details/{{ entry.id }}">View</a></td>
+                      <td><a routerLink="../expenses/edit/{{ entry.id }}">Edit</a></td>
+                      <td><a routerLink="../expenses/delete/{{ entry.id }}">Delete</a></td>
                    </tr> 
                 </tbody> 
              </table> 

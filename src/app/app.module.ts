@@ -10,6 +10,7 @@ import { ExpenseEntryListComponent } from './expense-entry-list/expense-entry-li
 import { DebugComponent } from './debug/debug.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { EditEntryComponent } from './edit-entry/edit-entry.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { LogoutComponent } from './logout/logout.component';
     ExpenseEntryListComponent,
     DebugComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    EditEntryComponent
   ],
   imports: [
     BrowserModule,
